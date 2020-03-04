@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  rabbit:
+    build:
+      context: .
+      dockerfile: rabbit.Dockerfile
+    container_name: rabbit_Primary_InDepth
+    ports:
+      - "1883:1883"
+      - "2222:2222"
+      - "5671:5671"
+      - "5672:5672"
+      - "9001:9001"
+      - "15670:15670"
+      - "15671:15671"
+      - "15672:15672"
+      - "61613:61613"
+
+  notebook:
+    build:
+      context: .
+      dockerfile: python.Dockerfile
+    container_name: notebook_InDepth
+    command: tail -f /dev/null
+    ports:
+      - "8888:8888"
+      - "8883:8883"
+    volumes:
+      - ./notebooks:/notebooks

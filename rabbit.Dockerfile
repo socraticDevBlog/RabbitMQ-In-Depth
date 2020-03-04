@@ -1,0 +1,4 @@
+FROM rabbitmq:3.8.3-rc.1-management-alpine
+RUN rabbitmq-plugins enable --offline rabbitmq_consistent_hash_exchange rabbitmq_management rabbitmq_federation rabbitmq_federation_management rabbitmq_shovel rabbitmq_shovel_management rabbitmq_mqtt rabbitmq_stomp rabbitmq_tracing rabbitmq_web_stomp rabbitmq_web_stomp_examples rabbitmq_amqp1_0
+
+EXPOSE 1883 2222 5671 5672 9001 15670 15671 15672 61613
